@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="22">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment version="1792" identifier="iOS"/>
+    </dependencies>
+    <scenes>
+        <!--Grupo Lauman-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="tabbedAppViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3"/>
+                        <viewControllerLayoutGuide type="bottom" id="4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6">
+                                <rect key="frame" x="30" y="250" width="260" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="348"/>
+                                </constraints>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7">
+                                <rect key="frame" x="30" y="200" width="260" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="345"/>
+                                </constraints>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.89411764705882357" green="0.89411764705882357" blue="0.89411764705882357" alpha="1"/>
+                        <constraints>
+                            <constraint id="343" firstItem="kh9-bI-dsS" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" constant="30"/>
+                            <constraint id="344" firstItem="7" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="200"/>
+                            <constraint id="346" firstItem="kh9-bI-dsS" firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="30"/>
+                            <constraint id="347" firstItem="6" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="250"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Grupo Lauman" id="33"/>
+                    <connections>
+                        <outlet property="txtPassword" destination="6" id="name-outlet-6"/>
+                        <outlet property="txtUserName" destination="7" id="name-outlet-7"/>
+                        <segue destination="304" kind="modal" identifier="home" modalTransitionStyle="flipHorizontal" id="337"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="578" y="77"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="21">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="22" sceneMemberID="viewController" wantsFullScreenLayout="NO" navigationBarHidden="YES" hidesBarsOnTap="NO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="25">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="34"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147" y="77"/>
+        </scene>
+        <!--Empresas Tab Controller-->
+        <scene sceneID="302">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="304" customClass="EmpresasTabController" sceneMemberID="viewController" wantsFullScreenLayout="NO">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="303">
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="309" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="77"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <resources>
+        <image name="Default-568h.png" width="640" height="1136"/>
+        <image name="Icon-60.png" width="120" height="120"/>
+        <image name="Icon.png" width="114" height="114"/>
+        <image name="img/Ribbon.png" width="539" height="77"/>
+        <image name="img/LaumanGroup.jpg" width="250" height="250"/>
+        <image name="img/tabAssets/icon-docs.png" width="30" height="30"/>
+        <image name="img/tabAssets/icon-empresas.png" width="30" height="30"/>
+        <image name="img/tabAssets/icon-home.png" width="30" height="30"/>
+        <image name="img/tabAssets/icon-mision.png" width="30" height="30"/>
+        <image name="img/tabAssets/icon-vision.png" width="30" height="30"/>
+        <image name="img/fondos/bg-comunicado-txt.png" width="640" height="1136"/>
+        <image name="img/fondos/bg-input.png" width="509" height="87"/>
+        <image name="img/fondos/bg-login.png" width="640" height="1136"/>
+        <image name="img/fondos/bg-mision-vision.png" width="640" height="1136"/>
+        <image name="img/empresas/CapitalPartners.png" width="52" height="52"/>
+        <image name="img/empresas/CAT.png" width="53" height="53"/>
+        <image name="img/empresas/Comtelsat.png" width="52" height="52"/>
+        <image name="img/empresas/ElFinanciero.png" width="52" height="52"/>
+        <image name="img/empresas/Millennium.png" width="52" height="52"/>
+        <image name="img/empresas/TeleVital.png" width="52" height="52"/>
+        <image name="img/fondos/cuadros_azules.png" width="60" height="6"/>
+        <image name="img/fondos/logo_lauman.png" width="581" height="147"/>
+        <image name="img/tabAssets/icon-opciones.png" width="30" height="30"/>
+        <image name="img/tabAssets/icon-empresasb.png" width="30" height="30"/>
+        <image name="img/tabAssets/icon-empresasCambio.png" width="30" height="30"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon-Small-40.png" width="80" height="80"/>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
+</document>
