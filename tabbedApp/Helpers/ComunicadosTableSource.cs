@@ -12,10 +12,10 @@ namespace tabbedApp
 	{
 		static readonly string ComunicadoCellId = "ComunicadosCell";
 
-		List<ComunicadosAnterioresModel> data;
+		List<Comunicado> data;
 		UITableViewController controller;
 
-		public ComunicadosTableSource(List<ComunicadosAnterioresModel> comunicados, UITableViewController tvc)
+		public ComunicadosTableSource(List<Comunicado> comunicados, UITableViewController tvc)
 		{
 			data = comunicados;
 			controller = tvc;
@@ -30,7 +30,8 @@ namespace tabbedApp
 		{
 			var comunicado = data [indexPath.Row];
 
-			controller.NavigationController.PushViewController (new ComnunicadoDetalleHistorial (comunicado), true);
+			//controller.NavigationController.PushViewController (new ComnunicadoDetalleHistorial (comunicado), true);
+			controller.NavigationController.PushViewController (new ComnunicadoDetalleHistorial(comunicado), true);
 
 			tableView.DeselectRow (indexPath, true);
 		}

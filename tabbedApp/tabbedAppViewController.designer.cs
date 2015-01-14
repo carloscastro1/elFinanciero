@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using System;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System;
 using System.CodeDom.Compiler;
 
 namespace tabbedApp
@@ -14,6 +14,10 @@ namespace tabbedApp
 	[Register ("tabbedAppViewController")]
 	partial class tabbedAppViewController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton passwordRecovery { get; set; }
+
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField txtPassword { get; set; }
@@ -24,6 +28,10 @@ namespace tabbedApp
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (passwordRecovery != null) {
+				passwordRecovery.Dispose ();
+				passwordRecovery = null;
+			}
 			if (txtPassword != null) {
 				txtPassword.Dispose ();
 				txtPassword = null;

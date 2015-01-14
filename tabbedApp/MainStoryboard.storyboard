@@ -33,6 +33,16 @@
                                     <constraint firstAttribute="width" constant="260" id="345"/>
                                 </constraints>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="354" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="71" y="420" width="187" height="30"/>
+                                <state key="normal" title="Olvidé mi contraseña">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.19215686274509805" green="0.30588235294117649" blue="0.52156862745098043" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <segue id="389" destination="358" kind="push"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" colorSpace="calibratedRGB" red="0.89411764705882357" green="0.89411764705882357" blue="0.89411764705882357" alpha="1"/>
                         <constraints>
@@ -47,6 +57,7 @@
                         <outlet property="txtPassword" destination="6" id="name-outlet-6"/>
                         <outlet property="txtUserName" destination="7" id="name-outlet-7"/>
                         <segue destination="304" kind="modal" identifier="home" modalTransitionStyle="flipHorizontal" id="337"/>
+                        <outlet property="passwordRecovery" destination="354" id="name-outlet-354"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -82,6 +93,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="309" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="77"/>
+        </scene>
+        <scene sceneID="357">
+            <objects>
+                <viewController id="358" sceneMemberID="viewController" customClass="PasswordFormViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="355"/>
+                        <viewControllerLayoutGuide type="bottom" id="356"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="359">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="" borderStyle="roundedRect" minimumFontSize="17" id="405" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Email">
+                                <rect key="frame" x="30" y="200" width="260" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="" borderStyle="roundedRect" minimumFontSize="17" id="406" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password">
+                                <rect key="frame" x="30" y="250" width="260" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="txtUserName" destination="405" id="name-outlet-405"/>
+                        <outlet property="txtPassword" destination="406" id="name-outlet-406"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="360" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="747"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

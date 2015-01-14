@@ -9,11 +9,11 @@ namespace tabbedApp
 {
 	public class ComnunicadoDetalleHistorial : UIViewController
 	{
-		ComunicadosAnterioresModel comunicado;
+		Comunicado comunicado;
 		UIWebView webView;
 		protected LoadingOverlay _loadPop = null;
 
-		public ComnunicadoDetalleHistorial (ComunicadosAnterioresModel comunicadoDetalle)
+		public ComnunicadoDetalleHistorial (Comunicado comunicadoDetalle)
 		{
 			comunicado = comunicadoDetalle;
 		}
@@ -32,7 +32,8 @@ namespace tabbedApp
 
 			// Determine the correct size to start the overlay (depending on device orientation)
 			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
-			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
+			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || 
+				UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 				bounds.Size = new SizeF(bounds.Size.Height, bounds.Size.Width);
 			}
 

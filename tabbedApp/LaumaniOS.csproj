@@ -27,6 +27,7 @@
     </MtouchI18n>
     <MtouchArch>i386</MtouchArch>
     <AssemblyName>LaumaniOS</AssemblyName>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -86,6 +87,8 @@
     <MtouchArch>ARMv7</MtouchArch>
     <IpaPackageName>
     </IpaPackageName>
+    <IpaIncludeArtwork>true</IpaIncludeArtwork>
+    <IpaMetadata>Info.plist</IpaMetadata>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>full</DebugType>
@@ -213,6 +216,7 @@
     <InterfaceDefinition Include="Screens\EmpresaViewController.xib" />
     <InterfaceDefinition Include="Screens\LoginViewController.xib" />
     <InterfaceDefinition Include="Screens\HomeViewController.xib" />
+    <InterfaceDefinition Include="Screens\pwd.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>

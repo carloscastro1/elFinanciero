@@ -42,7 +42,7 @@ namespace tabbedApp
 					Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
 				var filename = Path.Combine (documents, "UserData/user.txt");
 
-				Console.WriteLine (filename);
+				//Console.WriteLine (filename);
 
 				if (System.IO.File.Exists (filename)) {
 					var text = System.IO.File.ReadAllText (filename);    
@@ -54,7 +54,7 @@ namespace tabbedApp
 					//Console.WriteLine ("No hay archivo de configuracion");
 				}
 			} catch (Exception ex) {
-				Console.WriteLine (ex.Message.ToString ());
+				//Console.WriteLine (ex.Message.ToString ());
 			}
 		}
 
@@ -69,32 +69,13 @@ namespace tabbedApp
 
 			//TODO: replace XML file name with the id for company
 
-			string compania = String.Empty;
-
-			switch (idCompañia) {
-			case "1":
-				compania = "comtelsat";
-				break;
-			case "2":
-				compania = "capital";
-				break;
-			case "3":
-				compania = "financiero";
-				break;
-			case "4":
-				compania = "milenium";
-				break;
-			case "5":
-				compania = "televital";
-				break;
-			case "6":
-				compania = "cat";
-				break;
-			}
-
-			doc.Load ("http://10.10.28.38/LaumanAppRest/reportes/" + compania + "/" + idCompañia + ".xml");
+			//string compania = String.Empty;
 
 
+
+			//doc.Load ("http://187.141.3.25/LaumanAppRest/reportes/comtelsat/1.xml");
+
+			doc.Load ("http://187.141.3.25/LaumanAppRest/employeesPermissions.php?id=" + idCompañia);
 
 			Xml2Json xml2Json = new Xml2Json ();
 			var LeerArchivoXMLConfiguracionListadoHistorialComunicados = xml2Json.XmlToJSON (doc);
@@ -127,7 +108,7 @@ namespace tabbedApp
 
 			// Create the menu:
 
-			navigation.NavigationRoot = new RootElement ("") {
+			navigation.NavigationRoot = new RootElement ("Comunicados") {
 
 				//HACK: this is was used becacuse the navigation controller is a liitle buggy and does not move complete the nav controller
 				new Section ("") {
@@ -161,7 +142,7 @@ namespace tabbedApp
 				, true);
 
 
-
+			View.AddSubview (navigation.View);
 		}
 
 		class TaskPageController : DialogViewController
@@ -179,7 +160,7 @@ namespace tabbedApp
 
 				// show the loading overlay on the UI thread using the correct orientation sizing
 				this._loadPop = new LoadingOverlay (bounds, "Cargando reporte");
-				//this.View.Add ( this._loadPop );
+				this.View.Add ( this._loadPop );
 				string url = title;
 				//documentLoader.LoadRequest (new NSUrlRequest (new NSUrl (url)));
 
@@ -202,8 +183,15 @@ namespace tabbedApp
 				webView.LoadFinished += (object sender, EventArgs e) => {
 					this._loadPop.Hide ();
 				};
+
+				this.NavigationItem.SetRightBarButtonItem (
+					new UIBarButtonItem (UIBarButtonSystemItem.Add, (sender, args) => {
+						navigation.ToggleMenu ();
+
+					})
+					, true);
+
 			}
 		}
 	}
 }
-	

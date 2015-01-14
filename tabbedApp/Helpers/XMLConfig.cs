@@ -41,7 +41,7 @@ namespace tabbedApp
 				return instance;
 			} catch (Exception ex) {
 
-				Console.WriteLine (ex.Message);
+				//Console.WriteLine (ex.Message);
 				return null;
 			}
 		}

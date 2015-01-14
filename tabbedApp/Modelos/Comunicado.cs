@@ -12,15 +12,21 @@ namespace tabbedApp
 {
 	public class Comunicado
 	{
-		public string fechaEmision { get; set; }
+		public DateTime fechaEmision { get; set; }
 
 		public string idEmpresa { get; set; }
 
 		public string origenComunicado { get; set; }
 
+		public string PermisoLectura { get; set;}
+
 		public string TituloComunicado { get; set; }
 
 		public string urlComunicado { get; set; }
+
+		//public string idReporte { get; set;}
+
+
 	}
 
 	public class Comunicados

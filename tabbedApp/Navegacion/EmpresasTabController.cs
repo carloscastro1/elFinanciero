@@ -34,7 +34,7 @@ namespace tabbedApp
 			// Customize how this controller is represented when in a tab.
 			Empresas.TabBarItem = new UITabBarItem ("Empresas", UIImage.FromBundle ("img/tabAssets/icon-empresas.png.png"), 2);
 
-			var ComunicadosAnteriores = new UINavigationController (new FlyViewNav ());
+			var ComunicadosAnteriores = new UINavigationController (new ComunicadoHistorialViewController ());
 			ComunicadosAnteriores.TabBarItem = new UITabBarItem ("Comunicados", UIImage.FromBundle ("img/tabAssets/icon-docs.png"), 3);
 
 			//var Extras = new UINavigationController (new VisionViewController ());

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyoutNavigation", "..\..\.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lauman.Droid", "Lauman.Droid\Lauman.Droid.csproj", "{432D54C8-9DCC-4EBD-9622-E80FFC3C9555}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellCustomTable", "..\..\..\..\Downloads\CellCustomTable\CellCustomTable.csproj", "{15D8E98D-D803-4CCC-906F-0960D31DD333}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -19,18 +17,6 @@ Global
 		AppStore|iPhone = AppStore|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Ad-Hoc|iPhone.ActiveCfg = Release|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Ad-Hoc|iPhone.Build.0 = Release|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.AppStore|iPhone.ActiveCfg = Release|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.AppStore|iPhone.Build.0 = Release|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Debug|iPhone.Build.0 = Debug|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Release|iPhone.ActiveCfg = Release|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Release|iPhone.Build.0 = Release|iPhone
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{15D8E98D-D803-4CCC-906F-0960D31DD333}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{432D54C8-9DCC-4EBD-9622-E80FFC3C9555}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
 		{432D54C8-9DCC-4EBD-9622-E80FFC3C9555}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
 		{432D54C8-9DCC-4EBD-9622-E80FFC3C9555}.AppStore|iPhone.ActiveCfg = Release|Any CPU

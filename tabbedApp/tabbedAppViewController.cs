@@ -56,7 +56,7 @@ namespace tabbedApp
 
 			// Determine the correct size to start the overlay (depending on device orientation)
 
-		
+			NavigationController.SetNavigationBarHidden (true, true);
 			View.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile ("img/fondos/bg-login@2x.png"));
 
 			float w = View.Bounds.Width; //medir el total del tamaño de la ventana
@@ -103,20 +103,29 @@ namespace tabbedApp
 				View.AddSubview (this._loadPop);
 
 				// Load XML as an array
+				string url = string.Empty;
 
-				//string[] arr = XDocument.Load ("http://10.1.4.154/ef/rest/configuracion.xml").Descendants ("configuracion")
-				string[] arr = XDocument.Load ("http://10.10.28.38/LaumanAppRest/configuracion.xml").Descendants ("configuracion")
+				//string inHouseURL = "http://10.10.28.38/LaumanAppRest/configuracion.xml";
+				string outHouseURL = "http://187.141.3.25/LaumanAppRest/";
+
+			    //string[] arr = new string[]{ };
+				/*
+				if(await CheckUrlExists(inHouseURL)){
+					this._loadPop = new LoadingOverlay (bounds, "Validando punto de acceso...");
+					arr = XDocument.Load (inHouseURL).Descendants ("configuracion")
 				.Select (element => element.Value).ToArray ();
+					url = arr[0].ToString ();
+				}
+				else{
 
-				string url = arr [0].ToString ();
-
-
-				//10.10.29.75
+				}
+				*/
+				url = outHouseURL;
 				url += "info.php";
 
 
 				try {
-
+					
 					var usuarioInfo = await GetUsuarioInfo (txtUserName.Text, txtPassword.Text, url); 
 
 					UIAlertView alert = new UIAlertView ();
@@ -128,7 +137,7 @@ namespace tabbedApp
 						this._loadPop.Hide ();
 						CreateDirectory ();
 						CreateUserDataFile (usuarioInfo);
-						this.PerformSegue ("home", this);  
+						this.NavigationController.PushViewController (new HomeViewController(),true);
 						break;
 					case 0: 
 						this._loadPop.Hide ();
@@ -150,41 +159,47 @@ namespace tabbedApp
 					this._loadPop.Hide ();
 				}
 
+
 			};
 
+			/*
 			ForgetPasswordButon.TouchUpInside += (object sender, EventArgs e) => {
-				this.NavigationController.PushViewController (new PasswordFormViewController (), true);
-				//this.PresentViewController(new PasswordFormViewController(), true,  null);
-			};
+				this.NavigationController.PushViewController 
+				(new pwd (), true);
+			};*/
 
 			#region
-			View.AddSubviews (new UIView[] { SignInButton, ForgetPasswordButon }); // multiple add
+			View.AddSubviews (new UIView[] { SignInButton }); // multiple add
 			#endregion
 		}
 
 		public static void CreateDirectory ()
 		{
-			var documents =
-				Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
-			var directoryname = Path.Combine (documents, "UserData");
+			try{
+				var documents =
+					Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
+				var directoryname = Path.Combine (documents, "UserData");
 
-			if (!File.Exists (directoryname)) {
-				Directory.CreateDirectory (directoryname);
+				if (!File.Exists (directoryname)) {
+					Directory.CreateDirectory (directoryname);
 
-				// TODO: remove console outputs
-				// Output to app console
-				Console.WriteLine (
-					"A directory was created."
-					+ directoryname);
+
+				}
+			}
+			catch(Exception ex) {
 			}
 		}
 
 		public static void CreateUserDataFile (RootObject userInfo)
 		{
+			try{
 			var documents =
 				Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
 			var filename = Path.Combine (documents, "UserData/user.txt");  
-			File.WriteAllText (filename, userInfo.info [0].idGerencia.ToString ());
+				File.WriteAllText (filename, userInfo.info [0].PermisoLecturaReportes.ToString ());
+			}
+			catch(Exception ex){
+			}
 		}
 
 		public static async Task<RootObject> GetUsuarioInfo (string idUser, string password, string url)
@@ -206,7 +221,31 @@ namespace tabbedApp
 			return JsonConvert.DeserializeObject<RootObject> (json);
 		}
 
+		public static async Task<bool> CheckUrlExists(string url)
+		{
+			// If the url does not contain Http. Add it.
+			// if i want to also check for https how can i do.this code is only for http not https
+			if (!url.Contains("http://"))
+			{
+				url = "http://" + url;
+			}
+			try
+			{
+				var request =  WebRequest.Create(url) as HttpWebRequest;
+				request.Method = "HEAD";
+				using (var rr = await request.GetResponseAsync())
+				using (var response =  (HttpWebResponse)request.GetResponse())
+				{
 
+					return   response.StatusCode ==  HttpStatusCode.OK;
+
+				}
+			}
+			catch
+			{
+				return false;
+			}
+		}
 
 		public override void ViewWillAppear (bool animated)
 		{

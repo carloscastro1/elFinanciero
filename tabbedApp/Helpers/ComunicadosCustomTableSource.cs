@@ -17,12 +17,12 @@ namespace tabbedApp
 	public class ComunicadosCustomTableSource  : UITableViewSource
 	{
 		static readonly string sessionCellId = "SessionCell";
-		List<ComunicadosAnterioresModel> data;
-		IGrouping<int, ComunicadosAnterioresModel>[] grouping;
+		List<Comunicado> data;
+		IGrouping<int, Comunicado>[] grouping;
 		// sub-group of speakers in each index
 		UITableViewController controller;
 
-		public ComunicadosCustomTableSource (List<ComunicadosAnterioresModel> sessions, UITableViewController tvc)
+		public ComunicadosCustomTableSource (List<Comunicado> sessions, UITableViewController tvc)
 		{
 			data = sessions;
 			grouping = GetSessionsGroupedByDate ();
@@ -42,7 +42,7 @@ namespace tabbedApp
 		// TODO: Step 3b: uncomment to add a title to the header over each section
 		public override string TitleForHeader (UITableView tableView, int section)
 		{
-			return grouping [section].ElementAt (0).fechaDeEmision.Date.ToString ("dd MMM yyyy");
+			return grouping [section].ElementAt (0).fechaEmision.Date.ToString ("dd MMM yyyy");
 		}
 
 
@@ -77,10 +77,10 @@ namespace tabbedApp
 
 
 		// This method groups the Sessions by date
-		IGrouping<int, ComunicadosAnterioresModel>[] GetSessionsGroupedByDate ()
+		IGrouping<int, Comunicado>[] GetSessionsGroupedByDate ()
 		{
 			var sessionsGrouped = (from s in data
-			                       group s by s.fechaDeEmision.Day into g
+				group s by s.fechaEmision.Day into g
 			                       select g).ToArray ();
 
 			return sessionsGrouped;
